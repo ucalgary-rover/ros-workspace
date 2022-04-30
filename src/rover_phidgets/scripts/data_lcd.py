@@ -8,7 +8,7 @@ from Phidget22.Devices.LCD import *
 import time
 
 def gps_callback(data, args):
-    coords = str(round(data.latitude, 6)) + ", " + str(round(data.longitude, 6))
+    coords = str(round(data.latitude, 7)) + ", " + str(round(data.longitude, 7))
     args.writeText(LCDFont.FONT_5x8, 0, 0, "GPS Coords:")
     args.writeText(LCDFont.FONT_5x8, 0, 10, coords)
     args.flush()

@@ -11,7 +11,7 @@
     <!--Phidgets-->
     <include file="$(find ssrt_rover)/launch/phidgets.launch"/>
 
-    <!--Network-->
+    <!--Base Station-->
     <node pkg="rover" type="signal_service" name="signal_service"/>
 
 </launch>
