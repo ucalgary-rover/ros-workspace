@@ -1,2 +1,3 @@
 devel/
 build/
+!libssh-0.9.5/build
