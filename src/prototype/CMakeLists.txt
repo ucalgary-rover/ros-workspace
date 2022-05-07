@@ -9,10 +9,10 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package()
 include_directories(${catkin_INCLUDE_DIRS})
 
-#catkin_install_python(PROGRAMS scripts/subscriber.py
-#  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-#)
+catkin_install_python(PROGRAMS scripts/subscriber.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
-#catkin_install_python(PROGRAMS scripts/talker.py
-#  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-#)
+catkin_install_python(PROGRAMS scripts/talker.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
