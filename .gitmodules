@@ -1,3 +1,6 @@
 [submodule "src/drivers/ublox"]
 	path = src/drivers/ublox
 	url = https://github.com/ucalgary-rover/ublox.git
+[submodule "src/drivers/joystick"]
+	path = src/drivers/joystick
+	url = https://github.com/ucalgary-rover/joystick.git
