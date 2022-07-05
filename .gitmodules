@@ -4,3 +4,9 @@
 [submodule "src/drivers/joystick"]
 	path = src/drivers/joystick
 	url = https://github.com/ucalgary-rover/joystick.git
+[submodule "src/drivers/video_stream_opencv"]
+	path = src/drivers/video_stream_opencv
+	url = https://github.com/ucalgary-rover/video_stream_opencv.git
+[submodule "src/drivers/mjpeg_server"]
+	path = src/drivers/mjpeg_server
+	url = https://github.com/ucalgary-rover/mjpeg_server.git
