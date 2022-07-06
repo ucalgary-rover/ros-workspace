@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find video_stream_opencv)/launch/camera.launch" >
+        <arg name="video_stream_provider" value="0" />
+    </include>
+
+    <node pkg="rosserial_python" name="serial_node" type="serial_node.py" output="screen"/> 
+    
+    <node pkg="mjpeg_server" name="mjpeg_server" type="mjpeg_server" output="screen"/> 
+        <param name="port" value="8080" />
+    </node>
+</launch>
