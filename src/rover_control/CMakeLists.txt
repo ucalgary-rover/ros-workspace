@@ -8,6 +8,6 @@ find_package(catkin REQUIRED COMPONENTS
 #catkin_python_setup()
 catkin_package()
 include_directories(${catkin_INCLUDE_DIRS})
-catkin_install_python(PROGRAMS scripts/control.py
+catkin_install_python(PROGRAMS scripts/control.py scripts/drive.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
