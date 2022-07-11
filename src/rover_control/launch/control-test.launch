@@ -4,5 +4,6 @@
     <node pkg="joy" name="joy" type="joy_node" output="screen">
         <param name= "dev_name" type ="str" value="Logitech Logitech Dual Action"/>
     </node>
+    <!--edit the above value to match specified controller-->
     <node pkg = "rover_control" name = "test_inputs" type="joy-test.py" output="screen"/>
 </launch>
