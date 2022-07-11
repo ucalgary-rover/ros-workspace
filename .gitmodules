@@ -10,3 +10,6 @@
 [submodule "src/drivers/mjpeg_server"]
 	path = src/drivers/mjpeg_server
 	url = https://github.com/ucalgary-rover/mjpeg_server.git
+[submodule "src/drivers/ros_comm"]
+	path = src/drivers/ros_comm
+	url = https://github.com/ros/ros_comm.git
