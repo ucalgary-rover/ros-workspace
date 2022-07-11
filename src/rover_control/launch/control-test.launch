@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="rover_control" name="control" type="control.py" output="screen"/> 
+    <node pkg="joy" name="joy" type="joy_node" output="screen">
+        <param name= "dev_name" type ="str" value="Logitech Logitech Dual Action"/>
+    </node>
+    <node pkg = "rover_control" name = "test_inputs" type="joy-test.py" output="screen"/>
+</launch>
