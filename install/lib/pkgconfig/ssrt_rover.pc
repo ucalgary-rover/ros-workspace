@@ -1,0 +1,8 @@
+prefix=/home/shivamdesai/Desktop/rover/ros-workspace/install
+
+Name: ssrt_rover
+Description: Description of ssrt_rover
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

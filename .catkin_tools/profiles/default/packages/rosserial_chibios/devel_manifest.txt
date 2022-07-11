@@ -1,0 +1,5 @@
+rosserial/rosserial_chibios
+/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_chibios/cmake.lock /home/shivamdesai/Desktop/rover/ros-workspace/devel/./cmake.lock
+/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_chibios/share/rosserial_chibios/cmake/rosserial_chibiosConfig-version.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_chibios/cmake/rosserial_chibiosConfig-version.cmake
+/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_chibios/share/rosserial_chibios/cmake/rosserial_chibiosConfig.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_chibios/cmake/rosserial_chibiosConfig.cmake
+/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_chibios/lib/pkgconfig/rosserial_chibios.pc /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/rosserial_chibios.pc

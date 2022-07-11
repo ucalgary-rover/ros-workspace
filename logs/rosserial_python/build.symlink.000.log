@@ -1,0 +1,4 @@
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_python/cmake/rosserial_pythonConfig.cmake
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_python/cmake/rosserial_pythonConfig-version.cmake
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/python2.7/dist-packages/rosserial_python/__init__.py
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/rosserial_python.pc

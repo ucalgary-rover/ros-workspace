@@ -1,0 +1,6 @@
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/mpu_6050_driver/cmake/mpu_6050_driverConfig.cmake
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/mpu_6050_driver/cmake/mpu_6050_driverConfig-version.cmake
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/python2.7/dist-packages/mpu_6050_driver/__init__.py
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/mpu_6050_driver.pc
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/bin/imu_node.py
+Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/bin/cmake.lock

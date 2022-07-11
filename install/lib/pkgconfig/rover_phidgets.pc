@@ -1,0 +1,8 @@
+prefix=/home/shivamdesai/Desktop/rover/ros-workspace/install
+
+Name: rover_phidgets
+Description: Description of rover_phidgets
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
