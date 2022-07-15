@@ -13,19 +13,22 @@ from sensor_msgs.msg import Joy
 # axis 0 aka left stick horizonal controls angular speed
 def callback(data):
     twist = Twist()
-    twist.linear.x = data.axes[1]
-    twist.angular.z = data.axes[0]
+    if(data.buttons[1] == 1):
+        #b button = brake
+        twist.linear.x = 0
+        twist.angular.z = 0
+    else:
+        twist.linear.x = data.axes[1]
+        twist.angular.z = data.axes[2]
     pub.publish(twist)
-
 # Intializes everything
 def start():
-    # publishing to "turtle1/cmd_vel" to control turtle1
     global pub
+    rospy.init_node('teleop_node')
     pub = rospy.Publisher('rover/cmd_vel', Twist)
     # subscribed to joystick inputs on topic "joy"
     rospy.Subscriber("joy", Joy, callback)
     # starts the node
-    rospy.init_node('Joy2Rover')
     rospy.spin()
 
 if __name__ == '__main__':
