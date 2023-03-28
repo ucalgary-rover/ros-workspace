@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--designed for parallels desktop users-->
+<!--which treats the virtual mouse as /dev/input/js0 -->
+<launch>
+    <group ns = "rover_control">
+        <node pkg="rover_control" name="teleop" type="control.py" output="screen"/> 
+        <node pkg="joy" name="joy1" type="joy_node" output="screen">
+            <param name= "~dev" type ="str" value="/dev/input/js1"/>
+            <param name= "~coalesce_interval" value = "0.1"/>
+        </node>
+        <node pkg="rover_control" name="joy_one" type="joy-test.py" output="screen"/>
+        <node pkg="rover_control" name="test-buttons" type="controller-test.py"/>
+        <node pkg = "rover_control" name = "phid_drive" type="drive.py" output="screen"/>
+    </group>
+    <group ns = "rover_arm">
+        <node pkg="rover_control" name="arm-node" type="arm-node.py.py" output="screen"/>
+        <node pkg="joy" name="joy2" type="joy_node" output="screen">
+                <param name= "~dev" type ="str" value="/dev/input/js3"/>
+                <param name= "~coalesce_interval" value = "0.05"/>
+        </node>
+        <node pkg = "rover_control" name="joy_two" type="joy-test.py" output="screen"/>
+    </group>
+</launch>
+
+<group ns="camera2">
+        <node name="cam2" pkg="usb_cam" type="usb_cam_node" output="screen">
+        <param name="video_device" value="/dev/video2"/>
+        </node>
+    </group>

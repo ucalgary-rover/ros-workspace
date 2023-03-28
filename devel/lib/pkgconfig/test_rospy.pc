@@ -1,0 +1,8 @@
+prefix=/home/cartermarcelo/ros-workspace/devel
+
+Name: test_rospy
+Description: Description of test_rospy
+Version: 1.14.13
+Cflags: -I/home/cartermarcelo/ros-workspace/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

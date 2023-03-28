@@ -1,0 +1,2 @@
+set(roscpp_MESSAGE_FILES "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/clients/roscpp/msg/Logger.msg")
+set(roscpp_SERVICE_FILES "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/clients/roscpp/srv/Empty.srv;/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/clients/roscpp/srv/GetLoggers.srv;/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/clients/roscpp/srv/SetLoggerLevel.srv")

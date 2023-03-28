@@ -1,0 +1,8 @@
+prefix=/home/cartermarcelo/ros-workspace/devel
+
+Name: prototype
+Description: Description of prototype
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

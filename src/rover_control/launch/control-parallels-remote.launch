@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+        <node pkg="rover_control" name="teleop" type="control.py" output="screen"/> 
+        <node pkg="joy" name="joy1" type="joy_node" output="screen">
+            <param name= "~dev" type ="str" value="/dev/input/js1"/>
+            <param name= "~coalesce_interval" value = "0.1"/>
+        </node>
+</launch>

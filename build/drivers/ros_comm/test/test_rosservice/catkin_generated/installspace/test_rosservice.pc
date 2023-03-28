@@ -1,0 +1,8 @@
+prefix=/home/cartermarcelo/ros-workspace/install
+
+Name: test_rosservice
+Description: Description of test_rosservice
+Version: 1.14.13
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

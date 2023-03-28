@@ -1,0 +1,8 @@
+prefix=/home/cartermarcelo/ros-workspace/install
+
+Name: ros_gui
+Description: Description of ros_gui
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

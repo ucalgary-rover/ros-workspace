@@ -5,5 +5,4 @@
         <param name= "~coalesce_interval" value = "0.1"/>
     </node>
     <node pkg = "rover_control" name = "phid_drive" type="drive.py" output="screen"/>
-
 </launch>

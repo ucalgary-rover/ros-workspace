@@ -1,0 +1,8 @@
+prefix=/home/cartermarcelo/ros-workspace/devel
+
+Name: tutorial
+Description: Description of tutorial
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
