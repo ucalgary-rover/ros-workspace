@@ -516,6 +516,9 @@ message_runtime_DIR:PATH=/opt/ros/melodic/share/message_runtime/cmake
 //Dependencies for the target
 mock_socket_LIB_DEPENDS:STATIC=general;gtest;
 
+//The directory containing a CMake configuration file for nav_msgs.
+nav_msgs_DIR:PATH=/opt/ros/melodic/share/nav_msgs/cmake
+
 //The directory containing a CMake configuration file for pluginlib.
 pluginlib_DIR:PATH=/opt/ros/melodic/share/pluginlib/cmake
 
@@ -530,6 +533,12 @@ ros_comm_BINARY_DIR:STATIC=/home/cartermarcelo/ros-workspace/build/drivers/ros_c
 
 //Value Computed by CMake
 ros_comm_SOURCE_DIR:STATIC=/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/ros_comm
+
+//Value Computed by CMake
+ros_gps_BINARY_DIR:STATIC=/home/cartermarcelo/ros-workspace/build/ros_gps
+
+//Value Computed by CMake
+ros_gps_SOURCE_DIR:STATIC=/home/cartermarcelo/ros-workspace/src/ros_gps
 
 //Value Computed by CMake
 ros_gui_BINARY_DIR:STATIC=/home/cartermarcelo/ros-workspace/build/ros_gui
@@ -856,6 +865,12 @@ tutorial_BINARY_DIR:STATIC=/home/cartermarcelo/ros-workspace/build/tutorial
 tutorial_SOURCE_DIR:STATIC=/home/cartermarcelo/ros-workspace/src/tutorial
 
 //Value Computed by CMake
+tutorials_BINARY_DIR:STATIC=/home/cartermarcelo/ros-workspace/build/tutorials
+
+//Value Computed by CMake
+tutorials_SOURCE_DIR:STATIC=/home/cartermarcelo/ros-workspace/src/tutorials
+
+//Value Computed by CMake
 ublox_BINARY_DIR:STATIC=/home/cartermarcelo/ros-workspace/build/drivers/ublox/ublox
 
 //Value Computed by CMake
@@ -1067,7 +1082,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=59
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=61
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

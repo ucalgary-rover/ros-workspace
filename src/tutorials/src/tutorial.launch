@@ -1,0 +1,5 @@
+<? xml version="1.0"?>
+<launch>
+    <node package="tutorials" name="Talker" type="tutorials_talker" output="screen">
+    <node package="tutorials" name="Listener" type="tutorials_listener" output="screen">+
+</launch>
