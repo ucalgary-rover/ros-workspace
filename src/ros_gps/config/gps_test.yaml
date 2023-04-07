@@ -1,0 +1,6 @@
+ublox/device: zed_f9p
+logfile_name: test_logfile
+overwrite: true
+
+
+
