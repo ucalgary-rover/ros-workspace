@@ -1,0 +1,52 @@
+<!--created by Carter Marcelo for the Schulich Space Rover Team 04/05/2023-->
+<?xml version="1.0" encoding ="UTF-8"?>
+<launch>
+    <!-- We are defining some command-line arguments for THIS launch file below.-->
+    <!-- the <arg ... />  tag lets us set rosparams in source files.-->
+    <arg name="gps_param_file_name" doc="name of the param file for the rover gps" default="gps_test"/>
+    <arg name="gps_param_file_dir" doc="directory of the param_file for the ros_gps_node" default="$(find ros_gps)/config"/>
+    <arg name="node_name" default="gnss_log"/>
+    <arg name="respawn" default="true"/>
+    <arg name="respawn_delay" default="30"/>
+    <arg name="clear_params" default="true"/>
+    <arg name="output" default="screen"/>
+    <arg name="logfile_name" default="logfile"/>
+    <arg name="logfile_dir" default="$(find ros_gps)/logs"/>
+    <arg name="overwrite" default="true"/>
+    <arg name="ublox/device" value="zed_f9p"/>
+    <arg name="ublox/param_file_dir" default="$(find ublox_gps)/config"/>
+    <!--
+    <arg name="ublox/node_name" default="ublox"/>
+    <arg name="ublox/respawn" default="true"/>
+    <arg name="ublox/respawn_delay" default="30"/>
+    <arg name="ublox/clear_params" default="true"/>
+    <arg name="ublox/output" default="screen"/>
+    -->
+    <!-- the values -->
+    <!--<include> tags enable us to launch OTHER launch files from inside this file-->
+        <!-- this promotes good coding practice because we're not cramming a lot of code
+        into one file that could easily break if we were to change or remove something from the system 
+        (yes I gave up on separating the comment lines)-->
+    <include file="$(find ublox_gps)/launch/ublox_device.launch"/>
+        <!-- using "$(command [args])" in an argument will run the command in the brackets -->
+        <!-- and substitute the return value into the string assuming its compatible-->
+        <arg name="param_file_name" value="$(arg ublox/device)"/>
+        <arg name="param_file_dir" value="$(arg ublox/param_file_dir)"/>
+    </include>
+    <group ns="ros_gps">
+        <node name="$(arg node_name)" 
+            type="ros_gps_log_node" 
+            pkg="ros_gps" 
+            respawn="$(arg respawn)"
+            respawn_delay="$(arg respawn_delay)"
+            clear_params="$(arg clear_params)"
+            ouput="$(arg output)"/>
+            <param name="logfile_name" default="$(arg logfile_name).txt"/>
+            <param name="logfile_dir" default="$(arg logfile_dir)"/>
+            <param name="overwrite" default="$(arg overwrite)"/>
+            <rosparam command="load" file="$(arg gps_param_file_dir)/$(arg gps_param_file_name).yaml"/>
+        </node>
+    </group>
+</launch>
+
+<!-- TO DO: finish writing argument into here, then make .yaml file, then make GPS node write to file specificed by param -->
