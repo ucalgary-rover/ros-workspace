@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from Phidget22.Phidget import *
 from Phidget22.Devices.DCMotor import *
 from geometry_msgs.msg import Twist
