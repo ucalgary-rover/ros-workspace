@@ -1,8 +1,0 @@
-prefix=/home/cartermarcelo/ros-workspace/devel
-
-Name: roscpp
-Description: Description of roscpp
-Version: 1.14.13
-Cflags: -I/home/cartermarcelo/ros-workspace/devel/include -I/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/clients/roscpp/include -I/home/cartermarcelo/ros-workspace/devel/include/ros -I/usr/include
-Libs: -L${prefix}/lib -lroscpp -lpthread /usr/lib/x86_64-linux-gnu/libboost_chrono.so /usr/lib/x86_64-linux-gnu/libboost_filesystem.so /usr/lib/x86_64-linux-gnu/libboost_system.so
-Requires: cpp_common message_runtime rosconsole roscpp_serialization roscpp_traits rosgraph_msgs rostime std_msgs xmlrpcpp
