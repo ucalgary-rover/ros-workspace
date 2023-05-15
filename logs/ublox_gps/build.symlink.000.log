@@ -1,6 +1,0 @@
-Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/ublox_gps/cmake/ublox_gpsConfig.cmake
-Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/ublox_gps/cmake/ublox_gpsConfig-version.cmake
-Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/libublox_gps.so
-Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/ublox_gps/ublox_gps
-Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/ublox_gps/ublox_logger
-Symlinking /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/ublox_gps.pc
