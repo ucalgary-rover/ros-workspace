@@ -1,9 +1,0 @@
-rosserial/rosserial_server
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_server/cmake.lock /home/shivamdesai/Desktop/rover/ros-workspace/devel/./cmake.lock
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_server/share/rosserial_server/cmake/rosserial_serverConfig-version.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_server/cmake/rosserial_serverConfig-version.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_server/share/rosserial_server/cmake/rosserial_serverConfig.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_server/cmake/rosserial_serverConfig.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_server/lib/librosserial_server_lookup.so /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/librosserial_server_lookup.so
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_server/lib/rosserial_server/socket_node /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/rosserial_server/socket_node
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_server/lib/rosserial_server/udp_socket_node /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/rosserial_server/udp_socket_node
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_server/lib/rosserial_server/serial_node /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/rosserial_server/serial_node
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_server/lib/pkgconfig/rosserial_server.pc /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/rosserial_server.pc

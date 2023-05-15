@@ -1,5 +1,0 @@
-rover_phidgets
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rover_phidgets/cmake.lock /home/shivamdesai/Desktop/rover/ros-workspace/devel/./cmake.lock
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rover_phidgets/share/rover_phidgets/cmake/rover_phidgetsConfig-version.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rover_phidgets/cmake/rover_phidgetsConfig-version.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rover_phidgets/share/rover_phidgets/cmake/rover_phidgetsConfig.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rover_phidgets/cmake/rover_phidgetsConfig.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rover_phidgets/lib/pkgconfig/rover_phidgets.pc /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/rover_phidgets.pc
