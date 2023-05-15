@@ -1,8 +1,0 @@
-prefix=/home/cartermarcelo/ros-workspace/install
-
-Name: test_rosmaster
-Description: Description of test_rosmaster
-Version: 1.14.13
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: 
