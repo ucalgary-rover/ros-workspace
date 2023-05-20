@@ -5,10 +5,10 @@ from geometry_msgs.msg import Twist
 import time
 import rospy
 
-lFMotor = DCMotor()
-lCMotor = DCMotor()
-rCMotor = DCMotor()
-rBMotor = DCMotor()
+leftFrontMotor = DCMotor()
+leftBackMotor = DCMotor()
+rightFrontMotor = DCMotor()
+rightBackMotor = DCMotor()
 
 def connect_motor(motor, name):
 	status = False
@@ -30,20 +30,20 @@ def init_motor(motor):
 def bound(min_val, max_val, value):
 	return max(min_val, min(max_val, value))
 def reconnect(failsafe):
-	connect_motor(lFMotor, "LF")
-	connect_motor(lCMotor, "LC")
-	connect_motor(rCMotor, "RC")
-	connect_motor(rBMotor, "RB")
+	connect_motor(leftFrontMotor, "LF")
+	connect_motor(leftBackMotor, "LC")
+	connect_motor(rightFrontMotor, "RC")
+	connect_motor(rightBackMotor, "RB")
 	
-	init_motor(lFMotor)
-	init_motor(lCMotor)
-	init_motor(rCMotor)
-	init_motor(rBMotor)
+	init_motor(leftFrontMotor)
+	init_motor(leftBackMotor)
+	init_motor(rightFrontMotor)
+	init_motor(rightBackMotor)
 
-	lFMotor.enableFailsafe(failsafe)
-	lCMotor.enableFailsafe(failsafe)
-	rCMotor.enableFailsafe(failsafe)
-	rBMotor.enableFailsafe(failsafe)
+	leftFrontMotor.enableFailsafe(failsafe)
+	leftBackMotor.enableFailsafe(failsafe)
+	rightFrontMotor.enableFailsafe(failsafe)
+	rightBackMotor.enableFailsafe(failsafe)
 
 def callback(data):
 	#acceleration
@@ -55,14 +55,14 @@ def callback(data):
 			else:
 				right_targetVelocity = bound(-1 ,1, data.linear.x)
 				left_targetVelocity = bound(-1, 1, -data.linear.y)
-			lFMotor.setTargetVelocity(left_targetVelocity)
-			lCMotor.setTargetVelocity(left_targetVelocity)
-			rCMotor.setTargetVelocity(right_targetVelocity)
-			rBMotor.setTargetVelocity(right_targetVelocity)
-			lFMotor.resetFailsafe()
-			lCMotor.resetFailsafe()
-			rCMotor.resetFailsafe()
-			rBMotor.resetFailsafe()
+			leftFrontMotor.setTargetVelocity(left_targetVelocity)
+			leftBackMotor.setTargetVelocity(left_targetVelocity)
+			rightFrontMotor.setTargetVelocity(right_targetVelocity)
+			rightBackMotor.setTargetVelocity(right_targetVelocity)
+			leftFrontMotor.resetFailsafe()
+			leftBackMotor.resetFailsafe()
+			rightFrontMotor.resetFailsafe()
+			rightBackMotor.resetFailsafe()
 		except PhidgetException:
 			print("Connection lost!")
 			reconnect(10000)
@@ -72,10 +72,10 @@ def main():
 	print("Initing drive node")
 	rospy.Subscriber("rover/cmd_vel",Twist,callback,queue_size = 3)
 
-	lFMotor.setHubPort(3)
-	lCMotor.setHubPort(2)
-	rCMotor.setHubPort(5)
-	rBMotor.setHubPort(1)
+	leftFrontMotor.setHubPort(3)
+	leftBackMotor.setHubPort(2)
+	rightFrontMotor.setHubPort(5)
+	rightBackMotor.setHubPort(1)
 	print("Motors ready")
 	reconnect(10000)
 
@@ -85,8 +85,8 @@ if __name__ == '__main__':
 	try:
 		main()
 	except rospy.ROSInterruptException:
-		lFMotor.close()
-		lCMotor.close()
-		rCMotor.close()
-		rBMotor.close()
+		leftFrontMotor.close()
+		leftBackMotor.close()
+		rightFrontMotor.close()
+		rightBackMotor.close()
 		pass
