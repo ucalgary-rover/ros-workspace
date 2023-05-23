@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--designed for parallels desktop users-->
+<!--which treats the virtual mouse as /dev/input/js0 -->
+<launch>
+         <node pkg="joy" name="joy" type="joy_node" output="screen">
+                <param name= "~dev" type ="str" value="/dev/input/js1"/>
+                <param name= "~coalesce_interval" value = "0.01"/>
+                <param name="~deadzone" type = "double" value= "0.1"/>
+        </node>
+        <node pkg="rover_control" name="arm_controls" type="Arm-Node.py" output="screen"/>
+</launch>

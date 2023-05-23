@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+     <node pkg="rover_control" name="Publisher" type="Publisher-Example.py" output="screen"/>
+     <node pkg="rover_control" name="Subscriber" type="Subscriber-Example.py" output="screen"/>
+</launch>

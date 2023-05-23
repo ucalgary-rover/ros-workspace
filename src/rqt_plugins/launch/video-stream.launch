@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+    <group ns="GUI">
+        <node name="rqt_gui" pkg="rqt_gui" type= "rqt_gui"/> 
+    </group>
+    <group ns="camera1">
+        <node name="usb_cam1" pkg="usb_cam" type="usb_cam_node" output="screen">
+        <param name="video_device" value="/dev/video4"/>
+        <param name="fps" value="10"/>
+        <param name="pixel_format" value="yuyv"/>
+        </node>
+    </group>
+    <group ns="camera2">S
+        <node name="usb_cam2" pkg="usb_cam" type="usb_cam_node" output="screen">
+        <param name="video_device" value="/dev/video0"/>
+        <param name="fps" value="10"/>
+        <param name="pixel_format" value="yuyv"/>
+        </node>
+    </group>
+</launch>
+    

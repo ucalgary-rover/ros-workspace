@@ -1,0 +1,36 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/cartermarcelo/ros-workspace/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/utilities/message_filters/include/**",
+        "/home/cartermarcelo/ros-workspace/src/ros_gui/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/tools/rosbag/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/tools/rosbag_storage/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/clients/roscpp/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/utilities/roslz4/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/tools/rostest/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/tools/topic_tools/include/**",
+        "/home/cartermarcelo/ros-workspace/src/tutorial/include/**",
+        "/home/cartermarcelo/ros-workspace/src/tutorials/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ublox/ublox_gps/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ublox/ublox_msg_filters/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ublox/ublox_msgs/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ublox/ublox_serialization/include/**",
+        "/home/cartermarcelo/ros-workspace/src/drivers/ros_comm/utilities/xmlrpcpp/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

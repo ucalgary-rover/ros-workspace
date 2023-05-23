@@ -1,15 +1,20 @@
 #!/usr/bin/env python
 from geometry_msgs.msg import Twist
+from sensor_msgs.msg import Joy
 import std_msgs
 import time
 import rospy
 
 def callback(data):
-	linear_v = round(data.linear.x,1)
-	angular_v = -1*round(data.angular.z,1)
+    msg =""
+    if(data.buttons[0] == 1):
+        msg ="A was pressed"
+    else:
+        msg="A was not pressed"
+    rospy.loginfo(msg)
 def main():
 	rospy.init_node('test_inputs', anonymous=False)
-	rospy.Subscriber("rover/cmd_vel", Twist, callback,queue_size=None)
+	rospy.Subscriber("joy",Joy, callback,queue_size=None)
 	rospy.spin()
 if __name__ == '__main__':
 	try:

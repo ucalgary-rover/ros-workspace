@@ -1,6 +1,0 @@
-rosserial/rosserial_client
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_client/cmake.lock /home/shivamdesai/Desktop/rover/ros-workspace/devel/./cmake.lock
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_client/share/rosserial_client/cmake/rosserial_clientConfig.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_client/cmake/rosserial_clientConfig.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_client/share/rosserial_client/cmake/rosserial_clientConfig-version.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_client/cmake/rosserial_clientConfig-version.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_client/lib/python2.7/dist-packages/rosserial_client/__init__.py /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/python2.7/dist-packages/rosserial_client/__init__.py
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_client/lib/pkgconfig/rosserial_client.pc /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/rosserial_client.pc

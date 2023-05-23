@@ -1,8 +1,0 @@
-mpu_6050_driver
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/mpu_6050_driver/cmake.lock /home/shivamdesai/Desktop/rover/ros-workspace/devel/./cmake.lock
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/mpu_6050_driver/share/mpu_6050_driver/cmake/mpu_6050_driverConfig.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/mpu_6050_driver/cmake/mpu_6050_driverConfig.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/mpu_6050_driver/share/mpu_6050_driver/cmake/mpu_6050_driverConfig-version.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/mpu_6050_driver/cmake/mpu_6050_driverConfig-version.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/mpu_6050_driver/lib/python2.7/dist-packages/mpu_6050_driver/__init__.py /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/python2.7/dist-packages/mpu_6050_driver/__init__.py
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/mpu_6050_driver/lib/pkgconfig/mpu_6050_driver.pc /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/mpu_6050_driver.pc
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/mpu_6050_driver/bin/imu_node.py /home/shivamdesai/Desktop/rover/ros-workspace/devel/bin/imu_node.py
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/mpu_6050_driver/bin/cmake.lock /home/shivamdesai/Desktop/rover/ros-workspace/devel/bin/cmake.lock

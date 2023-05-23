@@ -1,5 +1,0 @@
-rosserial/rosserial_embeddedlinux
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_embeddedlinux/cmake.lock /home/shivamdesai/Desktop/rover/ros-workspace/devel/./cmake.lock
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_embeddedlinux/share/rosserial_embeddedlinux/cmake/rosserial_embeddedlinuxConfig-version.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_embeddedlinux/cmake/rosserial_embeddedlinuxConfig-version.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_embeddedlinux/share/rosserial_embeddedlinux/cmake/rosserial_embeddedlinuxConfig.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/rosserial_embeddedlinux/cmake/rosserial_embeddedlinuxConfig.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/rosserial_embeddedlinux/lib/pkgconfig/rosserial_embeddedlinux.pc /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/rosserial_embeddedlinux.pc

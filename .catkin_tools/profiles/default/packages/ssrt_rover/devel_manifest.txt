@@ -1,5 +1,0 @@
-rover_core
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/ssrt_rover/cmake.lock /home/shivamdesai/Desktop/rover/ros-workspace/devel/./cmake.lock
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/ssrt_rover/share/ssrt_rover/cmake/ssrt_roverConfig.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/ssrt_rover/cmake/ssrt_roverConfig.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/ssrt_rover/share/ssrt_rover/cmake/ssrt_roverConfig-version.cmake /home/shivamdesai/Desktop/rover/ros-workspace/devel/share/ssrt_rover/cmake/ssrt_roverConfig-version.cmake
-/home/shivamdesai/Desktop/rover/ros-workspace/devel/.private/ssrt_rover/lib/pkgconfig/ssrt_rover.pc /home/shivamdesai/Desktop/rover/ros-workspace/devel/lib/pkgconfig/ssrt_rover.pc
