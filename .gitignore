@@ -3,3 +3,5 @@ build/
 install/
 logs/
 !libssh-0.9.5/build
+**/.vscode
+**/**.code_workspace

@@ -35,8 +35,8 @@ generate_messages(
   sensor_msgs
 )
 catkin_package(
-  INCLUDE_DIRS include
-#  LIBRARIES tutorials
+  ##INCLUDE_DIRS include
+  ##LIBRARIES tutorials
   CATKIN_DEPENDS message_runtime roscpp rospy std_msgs sensor_msgs
 #  DEPENDS system_lib
 )
@@ -58,7 +58,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable()
+## Only call "add_executable"
 add_executable(drive_node scripts/drive.cpp)
 target_link_libraries(drive_node ${catkin_LIBRARIES})
 
