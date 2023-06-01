@@ -24,7 +24,7 @@ source /opt/ros/noetic/setup.bash
 catkin_make install
 sudo apt-get install -y ros-noetic-joy
 sudo apt install python3 rospy
-sudo apt-get install -y ros-noetic-urdf
+
 sudo apt-get install -y ros-noetic-rospy
 sudo apt-get install -y ros-noetic-xacro
 sudo apt install -y python3-roslaunch
@@ -36,12 +36,12 @@ sudo apt install ros-noetic-image-view
 
 
 RVIZ Installation:
-sudo apt-get install ros-noetic-rviz (likely installed by default)
+sudo apt-get install ros-noetic-rviz
 
 sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
 sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control
-
 sudo apt install ros-noetic-moveit
+sudo apt-get install ros-noetic-urdf
 sudo apt-get install ros-noetic-robot-state-publisher
 sudo apt-get install ros-noetic-robot-state-controller
 sudo apt-get install ros-noetic-joint-state-controller

@@ -13,3 +13,6 @@
 [submodule "src/drivers/ros_comm"]
 	path = src/drivers/ros_comm
 	url = https://github.com/ros/ros_comm.git
+[submodule "src/react-rover-ui"]
+	path = src/react-rover-ui
+	url = https://github.com/ucalgary-rover/react-rover-ui.git

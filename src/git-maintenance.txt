@@ -1,0 +1,4 @@
+RUN:
+git submodule update --recursive --remote
+git submodule foreach git checkout master
+git commit -am"$COMMIT_MSG"
