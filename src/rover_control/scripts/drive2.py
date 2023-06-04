@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from Phidget22.Phidget import *
 from Phidget22.Devices.DCMotor import *
-from geometry_msgs.msg import Twist
+from rover_control.msg import Drive
 import time
 import rospy
 
@@ -33,8 +33,8 @@ def bound(min_val, max_val, value):
 
 def callback(data):
 	try:
-		left_targetVelocity = bound(-1 ,1, -data.linear.x - data.angular.z)
-		right_targetVelocity = bound(-1, 1, data.linear.x - data.angular.z)
+		left_targetVelocity = data.left_speed
+		right_targetVelocity = data.right_speed
 		lFMotor.setTargetVelocity(left_targetVelocity)
 		lCMotor.setTargetVelocity(left_targetVelocity)
 		rCMotor.setTargetVelocity(right_targetVelocity)
@@ -50,7 +50,7 @@ def callback(data):
 def main():
 	rospy.init_node('phid_drive', anonymous=True)
 	print("Initing drive node")
-	rospy.Subscriber("rover/cmd_vel", Twist, callback)
+	rospy.Subscriber("rover/cmd_vel", Drive, callback)
 
 	lFMotor.setHubPort(3)
 	lCMotor.setHubPort(2)

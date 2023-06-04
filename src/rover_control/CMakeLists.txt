@@ -35,7 +35,7 @@ generate_messages(
   sensor_msgs
 )
 catkin_package(
-  ##INCLUDE_DIRS include
+  INCLUDE_DIRS include
   ##LIBRARIES tutorials
   CATKIN_DEPENDS message_runtime roscpp rospy std_msgs sensor_msgs
 #  DEPENDS system_lib
@@ -48,6 +48,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
 )
 ## Declare a C++ library
