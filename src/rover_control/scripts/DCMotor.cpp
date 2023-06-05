@@ -121,10 +121,17 @@ bool DCMotor::ok() noexcept{
 void DCMotor::shutdown(){
     if(this->ok())
         this->setTargetSpeed(0);
-    Phidget_close((PhidgetHandle)this->channel);
+    PhidgetReturnCode status = Phidget_close((PhidgetHandle)this->channel);
+    if(status != EPHIDGET_OK){
+        DCMotorException ex;
+        createException(ex,status);
+        throw ex;
+    }
 }
 void DCMotor::hard_shutdown(){
     Phidget_close((PhidgetHandle)this->channel);
+}
+DCMotor::~DCMotor(){
     Phidget_delete((PhidgetHandle*)&this->channel);
 }
 

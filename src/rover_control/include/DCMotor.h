@@ -13,7 +13,6 @@ class DCMotor{
         PhidgetDCMotorHandle channel; 
         std::string deviceName;
         int port;
-        int acceleration;
     public: 
         /// @brief Constructs a DCMotor object. 
         /// connect() must be invoked by must be initialized before using
@@ -42,32 +41,32 @@ class DCMotor{
         void connect(double acceleration = 50, uint32_t timeout_ms=10000);
         void throwException(PhidgetReturnCode& phidgetCode);
         void createException(DCMotorException& ex, const PhidgetReturnCode& phidgetCode)const noexcept;
-        
-        /// @brief Enables the failsafe timer on the motors. If the failsafe is not reset within
+
+        /// @brief Enables the failsafe timer on the motor. If the failsafe is not reset within
         /// the timer, the channel will close.
         /// @param timeout_ms the amount of time in which to wait before triggering the failsafe, in milliseconds
         void enableFailsafe(const uint32_t timeout_ms = 10000);
 
         /// @brief resets the failsafe timer. 
         void resetFailsafe();
+        
+        /// @brief sets the target braking strength of the motor. 
+        /// @param percent the percent of the maximum braking strength to apply
         void setTargetBrakingStrength(double percent);
+        
+        /// @brief Sets the target velocity of the motor 
+        /// @param speed the percentage of the maximum rotation speed to apply
         void setTargetSpeed(double speed);
+
         /// @brief checks if the motor is alive. Returns true if the motor is connected with the program.
         bool ok() noexcept;
         /// @brief Attempts a graceful shutdown by closing the communication channel with the device. 
         /// This action is not permanent and the channel can be reopened.
         void shutdown();
+
         /// @brief Forcefully shuts down the motor. This method will never throw an exception. 
         void hard_shutdown() noexcept;
+
         ~DCMotor();
-        /*
-        Methods to implement:
-        set/get brake strength
-        set target velocity
-
-
-        */
-
-        
 };
 #endif
