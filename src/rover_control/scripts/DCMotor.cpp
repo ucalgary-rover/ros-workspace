@@ -2,63 +2,55 @@
 using namespace ros;
 using namespace std;
 //if motor disconnects, need to call openWaitForAttachment() and not delete channel
-void DCMotor::createException(DCMotorException& ex, const PhidgetReturnCode& phidgetCode)const noexcept{
-    switch(phidgetCode){
-        case EPHIDGET_CLOSED:
-            ex.error_type() = DCMotorException::ExceptionType::DISCONNECTED;
-            ex.error_message() = std::string("Could not communicate with motor. Try closing and reopening the channel");
-            break;
-        case EPHIDGET_FAILSAFE:
-            ex.error_type() = DCMotorException::ExceptionType::FAILSAFE;
-            ex.error_message() = std::string("Failsafe timer has expired. Close and reopen the channel to continue using this resource");
-            break;
-        default:
-            ex.error_type() = DCMotorException::ExceptionType::UNKNOWN_ERROR;
-            ex.error_message() = std::string("Could not communicate with motor. Try closing and reopening the channel");
-            break;
+DCMotor::DCMotor(const std::string& name, int port):deviceName(name),port(port){}
+void DCMotor::initialize(){
+    PhidgetReturnCode status;
+    status = PhidgetDCMotor_create(&(this->channel));
+    if(status != EPHIDGET_OK){
+        DCMotorException ex;
+        createException(ex,status);
+        throw ex;
     }
-    //add the phidget return code so we know what's going on
-    std::stringstream str;
-    str<<" Phidget Code: "<< std::hex<<static_cast<int>(phidgetCode);
-    ex.error_message()+=str.str();
+    status = Phidget_setHubPort((PhidgetHandle)this->channel,port);
+    if(status != EPHIDGET_OK){
+        DCMotorException ex;
+        createException(ex,status);
+        throw ex;
+    }
 }
-void DCMotor::checkForException(const PhidgetReturnCode& phidgetCode){
-    DCMotorException ex;
-    ex.error_message() = name();
-    switch(phidgetCode){
-        case EPHIDGET_OK:
-            return;
-        case EPHIDGET_CLOSED:
-            ex.error_type() = DCMotorException::ExceptionType::DISCONNECTED;
-            ex.error_message() += std::string("- Could not communicate with motor. Try closing and reopening the channel");
-            break;
-        case EPHIDGET_FAILSAFE:
-            ex.error_type() = DCMotorException::ExceptionType::FAILSAFE;
-            ex.error_message() += std::string("- Failsafe timer has expired. Close and reopen the channel to continue using this resource");
-            break;
-        default:
-            ex.error_type() = DCMotorException::ExceptionType::UNKNOWN_ERROR;
-            ex.error_message() += std::string("- Could not communicate with motor. Try closing and reopening the channel");
-            break;
+void DCMotor::createException(DCMotorException& ex, const PhidgetReturnCode& phidgetCode)const noexcept{
+    std::string red_formatter("\e[1;31m");
+    std::string formatter_end("\e[0m");
+    std::string msg = red_formatter+"DEVICE ERROR ["+this->deviceName+"]" + formatter_end + ":\n";
+    const char* desc;
+    if(EPHIDGET_OK == Phidget_getErrorDescription(phidgetCode,&desc))
+        ex.set_error_message(msg+std::string(desc));
+    else{
+        //if we can't get the error code for some reason
+        std::stringstream stream;
+        stream << std::hex << (uint32_t)phidgetCode;
+        msg += "Failed with error code [" + stream.str() + "]"; 
     }
-    std::stringstream str;
-    str<<" Phidget Code: "<< std::hex<<static_cast<int>(phidgetCode);
-    ex.error_message()+=str.str();
+    return;
+}
+void DCMotor::throwException(PhidgetReturnCode& phidgetCode){
+    DCMotorException ex;
+    std::string red_formatter("\e[1;31m");
+    std::string formatter_end("\e[0m");
+    std::string msg = red_formatter+"DEVICE ERROR ["+this->deviceName+"]" + formatter_end + ":\n";
+    const char* desc;
+    if(EPHIDGET_OK == Phidget_getErrorDescription(phidgetCode,&desc))
+        ex.set_error_message(msg+std::string(desc));
+    else{
+        //if we can't get the error code for some reason
+        std::stringstream stream;
+        stream << std::hex << (uint32_t)phidgetCode;
+        msg += "Failed with error code [" + stream.str() + "]"; 
+    }
     throw ex;
 }
-DCMotor::DCMotor(const DCMotor::MountPoint& mount):mountPoint(mountPoint){
-    PhidgetDCMotor_create(&(this->channel));
-    Phidget_setHubPort((PhidgetHandle)this->channel,(int)mountPoint);
-}
 std::string DCMotor::name()const noexcept{
-    switch(this->mountPoint){
-        case LEFT_FRONT:    return std::string("LEFT FRONT");
-        case LEFT_MIDDLE:   return std::string("LEFT MIDDLE");
-        case LEFT_BACK:     return std::string("LEFT BACK");
-        case RIGHT_FRONT:   return std::string("RIGHT FRONT");
-        case RIGHT_MIDDLE:  return std::string("RIGHT MIDDLE");
-        case RIGHT_BACK:    return std::string("RIGHT BACK");          
-    }
+    return this->deviceName;
 }
 PhidgetDCMotorHandle& DCMotor::PhidgetChannel() noexcept{
     return this->channel;
@@ -87,7 +79,7 @@ void DCMotor::setTargetSpeed(double speed){
         throw ex;
     }
 }
-void DCMotor::initialize(double acceleration, unsigned int timeout_ms){
+void DCMotor::connect(double acceleration, uint32_t timeout_ms){
     PhidgetReturnCode status = Phidget_openWaitForAttachment((PhidgetHandle)this->channel,timeout_ms);
     if(status != EPHIDGET_OK){
         DCMotorException ex;
@@ -112,6 +104,11 @@ void DCMotor::initialize(double acceleration, unsigned int timeout_ms){
         createException(ex,status);
         throw ex;
     }
+}
+bool DCMotor::ok() noexcept{
+    int attached = 0;
+    PhidgetReturnCode status = Phidget_getAttached((PhidgetHandle)this->channel,&attached);
+    return (status == EPHIDGET_OK && attached == 1);
 }
 
 

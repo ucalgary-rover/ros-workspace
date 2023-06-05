@@ -60,10 +60,10 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 ## Only call "add_executable"
-add_executable(drive_node scripts/drive.cpp)
+add_executable(drive_node scripts/DriveNode.cpp)
 target_link_libraries(drive_node ${catkin_LIBRARIES})
 
-add_executable(teleop_node scripts/control.cpp)
+add_executable(teleop_node scripts/TeleopNode.cpp)
 target_link_libraries(teleop_node ${catkin_LIBRARIES})
 
 include_directories(${catkin_INCLUDE_DIRS})

@@ -1,6 +1,5 @@
-#include <phidget22.h>
-#include <ros/ros.h>
 #include <rover_control/Drive.h>
+#include <ros/ros.h>
 #include <DCMotor.h>
 #include <cstdlib>
 #include <exception>
@@ -8,9 +7,7 @@
 #include <boost/function.hpp>
 #ifndef DCMOTORMANAGER_H
 #define DCMOTORMANAGER_H
-//TO DO:
-//Convert DCMotorManager & DCMotor class to pimpl
-//use function pointers
+/// @brief A manager class to control the movements of a group of related DC Motors
 class DCMotorManager{
     private:
     /*
@@ -23,8 +20,8 @@ class DCMotorManager{
         ros::Subscriber subscriber;
         
     public:
+        std::string name;
         DCMotorManager();
-   
         void DCMotor_Reconnect();
         void callback(rover_control::DriveConstPtr& driveMsg);
         ~DCMotorManager();

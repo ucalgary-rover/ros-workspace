@@ -24,7 +24,8 @@ class DCMotorException: public std::exception{
         bool operator==(const DCMotorException& other);
         bool operator!=(const DCMotorException& other);
         ExceptionType& error_type();
-        std::string& error_message();
+        void set_error_message(const char* msg);
+        void set_error_message(const std::string&msg);
         char* what();
 };
 #endif
