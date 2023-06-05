@@ -71,6 +71,14 @@ void DCMotor::resetFailsafe(){
         throw ex;
     }
 }
+void DCMotor::setTargetBrakingStrength(double percent){
+    PhidgetReturnCode status = PhidgetDCMotor_setTargetBrakingStrength(this->channel,percent);
+    if(status !=EPHIDGET_OK){
+        DCMotorException ex;
+        createException(ex,status);
+        throw ex;
+    }
+}
 void DCMotor::setTargetSpeed(double speed){
     PhidgetReturnCode status;
     if((status = PhidgetDCMotor_setTargetVelocity(this->channel, speed))!=EPHIDGET_OK){
@@ -110,5 +118,15 @@ bool DCMotor::ok() noexcept{
     PhidgetReturnCode status = Phidget_getAttached((PhidgetHandle)this->channel,&attached);
     return (status == EPHIDGET_OK && attached == 1);
 }
+void DCMotor::shutdown(){
+    if(this->ok())
+        this->setTargetSpeed(0);
+    Phidget_close((PhidgetHandle)this->channel);
+}
+void DCMotor::hard_shutdown(){
+    Phidget_close((PhidgetHandle)this->channel);
+    Phidget_delete((PhidgetHandle*)&this->channel);
+}
+
 
 
