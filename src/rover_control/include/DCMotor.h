@@ -14,11 +14,12 @@ class DCMotor{
         std::string deviceName;
         int port;
     public: 
+        DCMotor();
         /// @brief Constructs a DCMotor object. 
         /// connect() must be invoked by must be initialized before using
         /// @param mount the mount location of the motor
         DCMotor(const std::string& name, int port);
-
+        int device_port() const noexcept;
         /// @brief Gets the name assigned to the DCMotor, as determined by its mount position
         /// @return the name of the DCMotor as an std::string
         std::string name() const noexcept;
