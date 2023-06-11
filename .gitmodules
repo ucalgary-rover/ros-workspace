@@ -16,3 +16,6 @@
 [submodule "src/react-rover-ui"]
 	path = src/react-rover-ui
 	url = https://github.com/ucalgary-rover/react-rover-ui.git
+[submodule "src/drivers/phidgets_drivers"]
+	path = src/drivers/phidgets_drivers
+	url = https://github.com/ucalgary-rover/phidgets_drivers
