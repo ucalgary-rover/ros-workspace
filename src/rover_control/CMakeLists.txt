@@ -8,42 +8,40 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   message_generation
 )
-#add all message files in the msg folder
+# Add all message files in the msg folder
 add_message_files(
   FILES
   Drive.msg
 )
-# add all service files in the srv folder
+
+# Add all service files in the srv folder
 # add_service_files(
-#  FILES
-#  Service1.srv  
+#   FILES
+#   Service1.srv  
 # )
-#add all action files in the action folder
+
+# Add all action files in the action folder
+
 ###################################
 ## catkin specific configuration ##
 ###################################
-## The catkin_package macro generates cmake config files for your package
-## Declare things to be passed to dependent projects
-## INCLUDE_DIRS: uncomment this if your package contains header files
-## LIBRARIES: libraries you create in this project that dependent projects also need
-## CATKIN_DEPENDS: catkin_packages dependent projects also need
-## DEPENDS: system dependencies of this project that dependent projects also needg
 
+## Generate message files
 generate_messages(
   DEPENDENCIES
   std_msgs
   sensor_msgs
 )
+
+## Declare package dependencies and export package information
 catkin_package(
-  INCLUDE_DIRS include
-  ##LIBRARIES tutorials
-  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs sensor_msgs
-#  DEPENDS system_lib
+  INCLUDE_DIRS include /usr/local/lib
+  CATKIN_DEPENDS message_runtime roscpp rospy std_msgs sensor_msgs libphidget22
 )
+
 ###########
 ## Build ##
 ###########
-#TO DO: Finish adding lightweight drive message to package and drive.cpp file
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
@@ -51,22 +49,31 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
-## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/tutorials.cpp
-# )
 
-## Declare a C++ executable
-## With catkin_make all packages are built within a single CMake context
-## The recommended prefix ensures that target names across packages don't collide
-## Only call "add_executable"
-add_executable(drive_node scripts/DriveNode.cpp)
-target_link_libraries(drive_node ${catkin_LIBRARIES})
+## Declare C++ executables
+## This line below sets environment variables we can use later on
+##
+set(TELEOP_SOURCES scripts/TeleopNode.cpp scripts/control.cpp)
+set(DRIVE_SOURCES scripts/DCMotor.cpp scripts/DCMotorException.cpp scripts/DriveNode.cpp)
+add_executable(drive_node ${DRIVE_SOURCES})
+## To link external libraries, you need to do two things:
+## Add the -L flag to specify the location of your library file (libquxx.so)
+## Add the -l flag to specify the library file to link against, but exclude the "lib" part
+## Instead, write -lquxx
+## To link "my_executable" against the external library "libexample.so":
+## It will look like: target_link_libraries(my_executable ${catkin_LIBRARIES} -L/path/to/lib -lexample)
+target_link_libraries(drive_node ${catkin_LIBRARIES} -L/usr/local/lib -lphidget22)
 
-add_executable(teleop_node scripts/TeleopNode.cpp)
+add_executable(teleop_node ${TELEOP_SOURCES})
 target_link_libraries(teleop_node ${catkin_LIBRARIES})
 
-include_directories(${catkin_INCLUDE_DIRS})
+## Install Python scripts
 catkin_install_python(PROGRAMS scripts/control.py scripts/drive.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+## Install CMake config file
+install(
+  FILES rover_controlConfig.cmake
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/cmake
 )

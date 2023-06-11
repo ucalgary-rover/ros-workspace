@@ -13,6 +13,7 @@ class DCMotor{
         PhidgetDCMotorHandle channel; 
         std::string deviceName;
         int port;
+        int acceleration;
     public: 
         DCMotor();
         /// @brief Constructs a DCMotor object. 
@@ -66,7 +67,7 @@ class DCMotor{
         void shutdown();
 
         /// @brief Forcefully shuts down the motor. This method will never throw an exception. 
-        void hard_shutdown() noexcept;
+        void hard_shutdown();
 
         ~DCMotor();
 };

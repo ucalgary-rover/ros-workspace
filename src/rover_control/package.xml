@@ -20,4 +20,7 @@
     <exec_depend>sensor_msgs</exec_depend>
     <build_depend>message_generation</build_depend>
     <exec_depend>message_runtime</exec_depend>
+    <build_depend>libphidget22</build_depend>
+    <build_export_depend>libphidget22</build_export_depend>
+    <exec_depend>libphidget22</exec_depend>
 </package>

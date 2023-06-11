@@ -1,4 +1,5 @@
 #include <DCMotor.h>
+#include <phidget22.h>
 using namespace ros;
 using namespace std;
 //if motor disconnects, need to call openWaitForAttachment() and not delete channel

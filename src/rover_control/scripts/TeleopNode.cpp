@@ -1,7 +1,6 @@
 #include <Teleop.h>
 using namespace ros;
 using namespace std;
-
 TeleopNode::TeleopNode(const std::string& node_name, float lower_bound, float upper_bound, unsigned int queue_size):nodeHandle(node_name),rate(ros::Rate(1)){
     this->upper_bound = upper_bound;
     this->lower_bound = lower_bound;   
@@ -16,10 +15,4 @@ void TeleopNode::drive_callback(const sensor_msgs::JoyConstPtr& joyMsg){
     driveMsg.left_speed = bound(joyMsg->axes[1]);
     driveMsg.right_speed = bound(joyMsg->axes[4]);
     this->pub.publish(driveMsg);
-} 
-int main(int argc, char*argv[]){
-    ros::init(argc,argv,"teleop_node");
-    TeleopNode node;
-    ros::spin();
-    return 0;
 }

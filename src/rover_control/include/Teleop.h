@@ -9,7 +9,8 @@
 #include <memory>
 #include <thread>
 #include <string>
-
+#ifndef TELEOPNODE_H
+#define TELEOPNODE_H
 class TeleopNode{
     protected:
         ros::NodeHandle nodeHandle;
@@ -33,3 +34,4 @@ class TeleopNode{
         void set_lower_bound(float value);
 
 };
+#endif

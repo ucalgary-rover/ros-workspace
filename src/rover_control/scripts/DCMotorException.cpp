@@ -46,6 +46,9 @@ bool DCMotorException::operator!=(const DCMotorException& other){
 DCMotorException::ExceptionType& DCMotorException::error_type(){
     return this->type;
 }
+void DCMotorException::set_error_message(const std::string& msg){
+    this->msg = msg;
+}
 void DCMotorException::set_error_message(const char* msg){
     this->msg = std::string(msg);
 }
