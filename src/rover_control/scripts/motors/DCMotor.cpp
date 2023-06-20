@@ -1,25 +1,29 @@
-#include <DCMotor.h>
+#include <motors/DCMotor.h>
 #include <phidget22.h>
 using namespace ros;
 using namespace std;
 //if motor disconnects, need to call openWaitForAttachment() and not delete channel
-DCMotor::DCMotor(const std::string& name, int port):deviceName(name),port(port){}
+using namespace Rover;
+using namespace Rover::Motors;
+DCMotor::DCMotor(const std::string& name, int port, DCMotorLocation location):
+deviceName(name),port(port),location(location){}
 void DCMotor::initialize(){
     PhidgetReturnCode status;
     status = PhidgetDCMotor_create(&(this->channel));
     if(status != EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
     status = Phidget_setHubPort((PhidgetHandle)this->channel,port);
     if(status != EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
+    ROS_INFO("Initialization OK");
 }
-void DCMotor::createException(DCMotorException& ex, const PhidgetReturnCode& phidgetCode)const noexcept{
+void DCMotor::createException(Rover::Exceptions::DCMotorException& ex, const PhidgetReturnCode& phidgetCode)const noexcept{
     std::string red_formatter("\e[1;31m");
     std::string formatter_end("\e[0m");
     std::string msg = red_formatter+"DEVICE ERROR ["+this->deviceName+"]" + formatter_end + ":\n";
@@ -35,7 +39,7 @@ void DCMotor::createException(DCMotorException& ex, const PhidgetReturnCode& phi
     return;
 }
 void DCMotor::throwException(PhidgetReturnCode& phidgetCode){
-    DCMotorException ex;
+    Rover::Exceptions::DCMotorException ex;
     std::string red_formatter("\e[1;31m");
     std::string formatter_end("\e[0m");
     std::string msg = red_formatter+"DEVICE ERROR ["+this->deviceName+"]" + formatter_end + ":\n";
@@ -59,7 +63,7 @@ PhidgetDCMotorHandle& DCMotor::PhidgetChannel() noexcept{
 void DCMotor::enableFailsafe(const uint32_t timeout_ms){
     PhidgetReturnCode status;
     if((status = PhidgetDCMotor_enableFailsafe(this->channel,timeout_ms))!=EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
@@ -67,7 +71,7 @@ void DCMotor::enableFailsafe(const uint32_t timeout_ms){
 void DCMotor::resetFailsafe(){
     PhidgetReturnCode status;
     if((status = PhidgetDCMotor_resetFailsafe(this->channel))!=EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
@@ -75,7 +79,7 @@ void DCMotor::resetFailsafe(){
 void DCMotor::setTargetBrakingStrength(double percent){
     PhidgetReturnCode status = PhidgetDCMotor_setTargetBrakingStrength(this->channel,percent);
     if(status !=EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
@@ -83,7 +87,7 @@ void DCMotor::setTargetBrakingStrength(double percent){
 void DCMotor::setTargetSpeed(double speed){
     PhidgetReturnCode status;
     if((status = PhidgetDCMotor_setTargetVelocity(this->channel, speed))!=EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
@@ -91,28 +95,34 @@ void DCMotor::setTargetSpeed(double speed){
 void DCMotor::connect(double acceleration, uint32_t timeout_ms){
     PhidgetReturnCode status = Phidget_openWaitForAttachment((PhidgetHandle)this->channel,timeout_ms);
     if(status != EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
     status = PhidgetDCMotor_setFanMode(this->channel,FAN_MODE_AUTO);
     if(status != EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
     status = PhidgetDCMotor_setAcceleration(this->channel,acceleration);
     if(status != EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
-    status = PhidgetDCMotor_setTargetVelocity(this->channel,acceleration);
+    status = PhidgetDCMotor_setTargetVelocity(this->channel,0);
     if(status != EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
+}
+int DCMotor::device_port() const noexcept{
+    return this->port;
+}
+DCMotorLocation DCMotor::motor_location() const noexcept{
+    return this->location; 
 }
 bool DCMotor::ok() noexcept{
     int attached = 0;
@@ -124,7 +134,7 @@ void DCMotor::shutdown(){
         this->setTargetSpeed(0);
     PhidgetReturnCode status = Phidget_close((PhidgetHandle)this->channel);
     if(status != EPHIDGET_OK){
-        DCMotorException ex;
+        Rover::Exceptions::DCMotorException ex;
         createException(ex,status);
         throw ex;
     }
@@ -135,6 +145,5 @@ void DCMotor::hard_shutdown(){
 DCMotor::~DCMotor(){
     Phidget_delete((PhidgetHandle*)&this->channel);
 }
-
 
 

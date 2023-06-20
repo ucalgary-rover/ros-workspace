@@ -35,7 +35,7 @@ generate_messages(
 
 ## Declare package dependencies and export package information
 catkin_package(
-  INCLUDE_DIRS include /usr/local/lib
+  INCLUDE_DIRS include include/controllers include/motors include/exceptions /usr/local/lib
   CATKIN_DEPENDS message_runtime roscpp rospy std_msgs sensor_msgs libphidget22
 )
 
@@ -53,18 +53,18 @@ include_directories(
 ## Declare C++ executables
 ## This line below sets environment variables we can use later on
 ##
-set(TELEOP_SOURCES scripts/TeleopNode.cpp scripts/control.cpp)
-set(DRIVE_SOURCES scripts/DCMotor.cpp scripts/DCMotorException.cpp scripts/DriveNode.cpp)
-add_executable(drive_node ${DRIVE_SOURCES})
+set (EXCEPTION_SOURCES scripts/exceptions/RuntimeException.cpp scripts/exceptions/DCMotorException.cpp)
+set(TELEOP_SOURCES scripts/controllers/TeleopNode.cpp scripts/main_files/TeleopMain.cpp)
+set(DRIVE_SOURCES scripts/motors/DCMotor.cpp scripts/main_files/DriveNode.cpp)
+add_executable(drive_node ${DRIVE_SOURCES} ${EXCEPTION_SOURCES})
 ## To link external libraries, you need to do two things:
-## Add the -L flag to specify the location of your library file (libquxx.so)
 ## Add the -l flag to specify the library file to link against, but exclude the "lib" part
 ## Instead, write -lquxx
 ## To link "my_executable" against the external library "libexample.so":
 ## It will look like: target_link_libraries(my_executable ${catkin_LIBRARIES} -L/path/to/lib -lexample)
 target_link_libraries(drive_node ${catkin_LIBRARIES} -L/usr/local/lib -lphidget22)
 
-add_executable(teleop_node ${TELEOP_SOURCES})
+add_executable(teleop_node ${TELEOP_SOURCES} ${EXCEPTION_SOURCES})
 target_link_libraries(teleop_node ${catkin_LIBRARIES})
 
 ## Install Python scripts

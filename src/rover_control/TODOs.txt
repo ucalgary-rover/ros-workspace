@@ -1,0 +1,13 @@
+TODO:
+- Move DCMotor to a separate package
+- Figure out package names that best suit the rover and put everything in the separate packages
+- System standards:
+    - all new packages need to use the underscore character
+    - subdirectories should use the underscore characters too
+    - if possible, namespace implementations should be placed under folders which match their names:
+        - EG: 
+        namespace Motors:
+        should be under a folder motors
+
+        - all lowercase names make it easier to type directories quickly in the terminal and minimize weird stuff
+        happening b/c capitalization

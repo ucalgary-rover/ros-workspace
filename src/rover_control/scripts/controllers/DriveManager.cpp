@@ -1,4 +1,6 @@
-#include <DriveManager.h>
+#include <controllers/DriveManager.h>
+using namespace Rover;
+using namespace Motors;
 DriveManager::DriveManager(){}
 DCMotor& DriveManager::create_motor(const std::string& name, int port, double acceleration, uint32_t timeout_ms){
     for(DCMotor& motor:motors){
@@ -14,7 +16,7 @@ DCMotor& DriveManager::create_motor(const std::string& name, int port, double ac
             this->motors.back().connect(acceleration,timeout_ms);
             break;
         }
-        catch(DCMotorException& ex){
+        catch(Rover::Exceptions::DCMotorException& ex){
             ROS_ERROR(ex.what());
             this->motors.pop_back();
         }
@@ -34,7 +36,7 @@ void DriveManager::enable_all_failsafe(uint32_t interval){
             iter->enableFailsafe(interval);
             iter++;
         }
-        catch(DCMotorException& ex){
+        catch(Rover::Exceptions::DCMotorException& ex){
             ROS_ERROR("%s",ex.what());
         }
         catch(std::exception& err){
@@ -50,6 +52,10 @@ void DriveManager::DCMotor_Reconnect(){
     for(DCMotor& motor : motors){
         try{
             motor.connect();
+        }
+        catch(Rover::Exceptions::DCMotorException)
+        {
+
         }
     }
 }
