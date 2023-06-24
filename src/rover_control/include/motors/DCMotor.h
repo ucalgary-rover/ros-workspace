@@ -1,6 +1,6 @@
 #include <exceptions/DCMotorException.h>
 #include <iomanip>
-#include <phidget22.h>
+#include <controllers/PhidgetCommon.h>
 #include <stdexcept>
 #include <ros/ros.h>
 #ifndef DCMOTOR_H
