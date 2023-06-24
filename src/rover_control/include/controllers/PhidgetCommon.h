@@ -8,6 +8,7 @@
 #include <exception>
 #include <stdexcept>
 #include <phidget22.h>
+//DO NOT USE
 #if 0
     #ifndef PHIDGETCOMMON_H
     #define PHIDGETCOMMON_H
