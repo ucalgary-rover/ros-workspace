@@ -16,11 +16,6 @@
 /// @brief A manager class to control the movements of a group of related DC Motors
 class DriveManager{
     private:
-    /*
-    Singleton is too hard to implement. For all intents and purposes, 
-    nobody on the SSRT will purposely implement two managers
-    In fact, having a separate manager for different sets of DCMotors would be beneficial
-    */
         std::vector<Rover::Motors::DCMotor> motors;
         ros::NodeHandle nodehandle;
         ros::Subscriber subscriber;

@@ -3,7 +3,7 @@ using namespace Rover;
 using namespace Exceptions;
 
 RuntimeException::RuntimeException(){
-    this->code = ExceptionCode::GENERIC;
+    this->code = ExceptionCode::UNKNOWN;
     this->message = "";
 }
 RuntimeException::RuntimeException(const ExceptionCode& code):code(code){

@@ -21,7 +21,6 @@ void DCMotor::initialize(){
         createException(ex,status);
         throw ex;
     }
-    ROS_INFO("Initialization OK");
 }
 void DCMotor::createException(Rover::Exceptions::DCMotorException& ex, const PhidgetReturnCode& phidgetCode)const noexcept{
     std::string red_formatter("\e[1;31m");

@@ -10,6 +10,7 @@ using namespace ros;
 using namespace std;
 using namespace Rover;
 using namespace Motors;
+//TODO: move this code into DriveManager.cpp
 /// @brief A simple file intended to demonstrate and test the capabilities of the rover with C++ using Phidgets.
 /// It is not a permanent solution, and may be removed in later builds
 std::vector<Rover::Motors::DCMotor> motors;

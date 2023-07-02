@@ -11,3 +11,7 @@ TODO:
 
         - all lowercase names make it easier to type directories quickly in the terminal and minimize weird stuff
         happening b/c capitalization
+
+- Communicate with Mechanical / MTRON / ZTRON (not sure which) -> what are the specific needs for the science tool DC Motor?
+- Camera Backup plan: poll /dev/video* in terminal, run ffplay over serial (is this even possible, and if so, how does it work?)
+- Panorama: really not sure how to go about this. Perhaps Derek would know?

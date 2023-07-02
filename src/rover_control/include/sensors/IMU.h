@@ -3,6 +3,9 @@
 #include <phidget22.h>
 #include <cstdlib>
 #include <exceptions/RuntimeException.h>
+#include <exceptions/PhidgetException.h>
+#ifndef IMU_H
+#define IMU_H
 // TODO: convert phidget-using classes to inherit common base type
 namespace Rover
 {
@@ -11,6 +14,7 @@ namespace Rover
         class IMU
         {
             private:
+                bool initialized;
                 std::string deviceName;
                 PhidgetSpatialHandle channel;
             public:
@@ -24,7 +28,7 @@ namespace Rover
                 IMU();
                 IMU(const std::string& deviceName);
                 void initialize();
-                void connect();
+                void connect(uint32_t timeout_ms);
                 std::string name() const noexcept;
                 void setName(const std::string& newName);
                 EulerAngles getEulerAngles();
@@ -32,3 +36,4 @@ namespace Rover
         }typedef Spatial;
     }
 }
+#endif
