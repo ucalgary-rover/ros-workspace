@@ -8,7 +8,7 @@ std::string PhidgetException::PhidgetErrorDescription(PhidgetReturnCode& code) n
     const char* message;
     PhidgetReturnCode status = Phidget_getErrorDescription(code,&message);
     std::string errorString(message);
-   
+    return errorString;
 }
 #if 0
 namespace Rover{
