@@ -40,6 +40,7 @@ void callback(const rover_control::DriveConstPtr& driveMsg){
     ROS_INFO("Setting speed to: %f",driveMsg->left_speed);
     for(auto& motor : motors){
         try{
+            
             motor.setTargetSpeed(driveMsg->left_speed);
         }catch(Rover::Exceptions::DCMotorException& ex){
             connect(motor.name(),motor.device_port(),motor.motor_location());
@@ -53,10 +54,11 @@ int main(int argc, char** argv){
     int active_ports[] = {1,2,3,5};
     
     std::string name = "motor"; // to do: add the appropriate names of each motor to an array
-    std::vector<DMotorLocation> motorLocations();
+    std::vector<DMotorLocation> motorLocations({DCMotorLocation::LEFT, DCMotorLocation::LEFT, DCMotorLocationL::RIGHT, DCMotorLocation::RIGHT}); //to do: confirm the locations of each motor:
+    int i = 0;
     for(int port : active_ports)
     {
-        reconnect(name,port
+        reconnect(name,port, motorLocations[i++]);
     }
     
     ros::spin();
