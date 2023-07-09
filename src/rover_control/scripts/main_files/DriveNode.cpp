@@ -39,10 +39,13 @@ void callback(const rover_control::DriveConstPtr& driveMsg){
     ROS_INFO("left: %f | right: %f", driveMsg->left_speed, driveMsg->right_speed);
     ROS_INFO("Setting speed to: %f",driveMsg->left_speed);
     for(auto& motor : motors){
-        try{
-            
-            motor.setTargetSpeed(driveMsg->left_speed);
-        }catch(Rover::Exceptions::DCMotorException& ex){
+        try
+	   {
+            if(motor.motor_location() == DCMotorLocation::LEFT) motor.setTargetSpeed(driveMsg->left_speed);
+            else if(motor.motor_location() == DCMotorLocation::RIGHT) motor.setTargetSpeed(driveMsg->right_speed);
+            else continue; //invalid location, handle error
+        }
+	   catch(Rover::Exceptions::DCMotorException& ex){
             connect(motor.name(),motor.device_port(),motor.motor_location());
         }
     }
