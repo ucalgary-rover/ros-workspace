@@ -51,12 +51,14 @@ int main(int argc, char** argv){
     ros::NodeHandle nh;
     ros::Subscriber sub = nh.subscribe("/drive_speed",10,&callback);
     int active_ports[] = {1,2,3,5};
-    /*
+    
+    std::string name = "motor"; // to do: add the appropriate names of each motor to an array
+    std::vector<DMotorLocation> motorLocations();
     for(int port : active_ports)
     {
-        reconnect(port);
+        reconnect(name,port
     }
-    */
+    
     ros::spin();
     return 0;
 }
